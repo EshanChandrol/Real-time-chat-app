@@ -20,7 +20,7 @@ This is a simple chat application built using Node.js, WebSocket, PostgreSQL, Re
   Installation
 
 1. Clone the repository to your local machine:
-git clone https://github.com/yourusername/chat-application.git
+git clone https://github.com/EshanChandrol/Real-time-chat-app
 
 
 Navigate to the project directory:
