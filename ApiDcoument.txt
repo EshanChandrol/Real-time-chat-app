@@ -1,0 +1,58 @@
+Chat Application API Documentation
+This API documentation provides information about the endpoints and usage of the chat application.
+
+Base URL
+The base URL for all API endpoints is:
+
+    
+     
+http://localhost:3000
+Replace localhost:3000 with the actual host and port of your deployed application if different.
+
+Authentication
+To access protected endpoints, you need to include a valid JWT token in the Authorization header of the request.
+
+User Registration
+
+URL: /register
+Method: POST
+Description: Register a new user.
+Request Body:
+username (string, required): The username of the user.
+password (string, required): The password of the user.
+Response:
+Status Code: 201 Created if the user is registered successfully.
+Status Code: 400 Bad Request if the request body is invalid.
+Status Code: 500 Internal Server Error if there's an error during registration.
+
+User Login
+URL: /login
+Method: POST
+Description: Log in an existing user.
+Request Body:
+username (string, required): The username of the user.
+password (string, required): The password of the user.
+Response:
+Status Code: 200 OK if login is successful. Response body contains a JWT token.
+Status Code: 401 Unauthorized if the credentials are invalid.
+Status Code: 500 Internal Server Error if there's an error during login.
+
+WebSocket Endpoints
+The WebSocket endpoints are used for real-time communication between clients. They are not RESTful endpoints and do not follow the traditional request-response model.
+
+URL: /websocket
+Description: Establishes a WebSocket connection for real-time communication.
+Events:
+message: Handles incoming messages. Messages should be in JSON format with fields sender, receiver, and content.
+Other Endpoints
+Additional endpoints may include functionalities such as fetching user details, fetching message history, and managing user sessions. Document these endpoints as needed.
+
+Error Handling
+For invalid requests or missing parameters, the API will respond with appropriate error messages and status codes.
+Internal server errors will result in a generic error message with status code 500.
+Rate Limiting
+There is no rate limiting implemented in the API. However, it's recommended to implement rate limiting to prevent abuse or DoS attacks.
+
+Authentication and Authorization
+Endpoints requiring authentication will return a 401 status code if no valid JWT token is provided.
+Ensure that endpoints are properly secured to prevent unauthorized access.
